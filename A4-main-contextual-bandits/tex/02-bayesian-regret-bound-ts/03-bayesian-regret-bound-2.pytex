@@ -1,0 +1,38 @@
+\item \points{2c}
+
+Let us now impose a specific form of confidence bounds:
+
+\begin{align*}
+L_t(a) &= \max \left\{0, \hat\mu_t(a) - \sqrt{\frac{2 + 6\log T}{n_t(a)}}\right\} \\
+U_t(a) &= \min \left\{1, \hat\mu_t(a) + \sqrt{\frac{2 + 6\log T}{n_t(a)}}\right\}
+\end{align*}
+
+where $\hat\mu_t(a)$ is the mean of rewards received playing action $a$ before time $t$, and $n_t(a)$ is the number of times action $a$ was played before time $t$.
+(If action $a$ has never been played at time $t$, $L_t(a) = 0$ and $U_t(a) = 1$.)
+
+You may take as given the following fact: with $L_t$ and $U_t$ defined as above, it holds that:
+
+\begin{align*}
+\forall a, \quad \mathbb{P}_{\theta, H}\left(\bigcup_{t=1}^T \left\{ \mu_\theta \not \in [L_t(a), U_t(a)] \right\}\right) \leq \frac{1}{T}
+\end{align*}
+
+and thus, the bound from part (b) implies:
+
+\begin{align*}
+\text{BR}_T(\pi^{TS}) \le \E_{\theta, H}\left[\sum_{t=1}^T [U_t(a_t) - L_t(a_t)]\right] + K
+\end{align*}
+
+To bound the remaining terms, let us use the decomposition $\sum_{t=1}^T [U_t(a_t) - L_t(a_t)] = \sum_a \sum_{t \in \mathcal{T}_a} [U_t(a) - L_t(a)]$, where $\mathcal{T}_a = \{t \in [T] : a_t = a\}$.
+
+Show that:
+
+\begin{align*}
+\sum_{t \in \mathcal{T}_a} [U_t(a) - L_t(a)] \le 1 + 2 \sqrt{2 + 6 \log T} \sum_{i=1}^{n_T(a)} \frac{1}{\sqrt{i}}
+\end{align*}
+
+\textit{Hint: Consider the possible combinations $U_{t}(a)$ and $L_{t}(a)$ and how their difference guarantees the above bounded expression.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2c(.*?)% <SCPD_SUBMISSION_TAG>_2c', f.read(), re.DOTALL)).group(1))
+🐍

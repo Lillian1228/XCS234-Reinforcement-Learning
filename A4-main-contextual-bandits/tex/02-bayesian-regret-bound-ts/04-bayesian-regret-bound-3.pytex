@@ -1,0 +1,14 @@
+\item \points{2d}
+
+Show that:
+
+\begin{align*}
+\sum_{i=1}^{n_T(a)} \frac{1}{\sqrt{i}} \le 2\sqrt{n_T(a)}
+\end{align*}
+
+\textit{Hint: you can bound the sum by an integral.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2d(.*?)% <SCPD_SUBMISSION_TAG>_2d', f.read(), re.DOTALL)).group(1))
+🐍

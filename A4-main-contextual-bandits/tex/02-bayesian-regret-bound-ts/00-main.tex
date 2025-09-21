@@ -1,0 +1,41 @@
+\section{A Bayesian Regret Bound for Thompson Sampling}
+
+Consider the $K$-armed bandit problem: there are $K$ ''arms'' (actions), and we will choose one arm $a_t \in [K]$ to pull at each time $t \in [T]$, then receive a random reward $r_t \sim p(r \mid \theta, a = a_{t})$. Here $\theta$ is a random variable that parameterizes the reward distribution. Its ''true'' value is unknown to us, but we can make probabilistic inferences about it by combining prior belief with observed reward data. We denote the expected reward for arm $a$ (for a fixed $\theta$) as $\mu_\theta(a) := \E[r \mid \theta, a]$. 
+
+A \textit{policy} specifies a distribution over the next arm to pull, given the observed history of interactions $H_t = (a_1, r_1, \dots, a_{t-1}, r_{t-1})$.\footnote{Note: we take history to mean that which is known at the beginning of step $t$, rather than at the end of step $t$, so it only goes up to $a_{t-1}, r_{t-1}$.}
+Formally, a policy is a collection of maps $ \pi = \{ \pi_{t} : \mathcal{H}_{t} \to \Delta(\mathcal{A})\}_{t=1}^T$, where $\mathcal{H}_{t}$ is the space of all possible histories at time $t$ and $\Delta(\mathcal{A})$ is the set of probability distributions over $\mathcal{A}$. We denote the probability of arm $a$ under policy $\pi$ at time $t$ as $\pi_t(a \mid ,H_{t})$.
+
+For a fixed value of $\theta$, the suboptimality of a policy $\pi$ can be measured by the \textit{expected regret}:
+\begin{align*}
+R_{T, \theta}(\pi) = \E_H\left[\sum_{t=1}^T \mu_\theta(a^*) - \mu_\theta(a_t) \mid \theta\right]
+\end{align*}
+where the expectation is taken with respect to the arms selected, $a_t \sim \pi_t(a \mid H_t)$, and rewards subsequently observed, $r_t \sim p(r \mid \theta, a=a_t)$. We use $H$ as a shorthand for $H_{T+1} = (a_1, r_1, \dots, a_T, r_T)$.\footnote{The regret does not actually depend on $r_T$.} Note that $a^*$ is random because $\theta$ is random, but for a given $\theta$ it is fixed and can be computed by $a^* = \arg\max_a \mu_{\theta}(a)$. (Assume for simplicity that there is one optimal action for any given $\theta$.)
+
+Our goal in this problem is to prove a bound on the \textit{Bayesian regret}, which is the expected regret averaged over a prior distribution on $\theta$:
+\begin{align*}
+\text{BR}_T(\pi) = \E_{\theta}[R_{T, \theta}(\pi)]
+\end{align*}
+
+We will analyze the \textit{Thompson sampling} (or \textit{posterior sampling}) algorithm, which operates by sampling from the posterior distribution of the optimal action $a^*$ given $H_t$:
+\begin{align*}
+\pi^{TS}_{t}(a | H_{t}) = p(a^*=a | H_{t})
+\end{align*}
+We can sample from $\pi^{TS}_{t}$ by first sampling $\theta_t \sim p(\theta \mid H_t)$ and then computing $a_t = \arg\max_a \mu_{\theta_t}(a)$.
+
+
+\begin{enumerate}[(a)]
+
+	\input{02-bayesian-regret-bound-ts/01-bayesian-regret-decomposition}
+
+	\input{02-bayesian-regret-bound-ts/02-bayesian-regret-bound-1}
+
+	\input{02-bayesian-regret-bound-ts/03-bayesian-regret-bound-2}
+
+	\input{02-bayesian-regret-bound-ts/04-bayesian-regret-bound-3}
+
+	\input{02-bayesian-regret-bound-ts/05-bayesian-regret-bound-4}
+
+	\input{02-bayesian-regret-bound-ts/06-bayesian-regret-bound-5}
+
+
+\end{enumerate}

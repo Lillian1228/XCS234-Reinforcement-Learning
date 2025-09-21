@@ -1,0 +1,16 @@
+\item \points{2a}
+
+Let $\{L_t : \mathcal{A} \to \R\}_{t=1}^T$ and $\{U_t : \mathcal{A} \to \R\}_{t=1}^T$ be lower and upper confidence bound\footnote{In Thompson sampling, the upper confidence bound is not used to select actions; we only introduce it for the purpose of analysis.} sequences (respectively), where each $L_t$ and $U_t$ depends on $H_t$.
+
+Show that the Bayesian regret for Thompson sampling can be decomposed as:
+
+\begin{align*}
+\text{BR}_T(\pi^{TS}) = \E_{\theta, H}\left[\sum_{t=1}^T [U_t(a_t) - L_t(a_t)] + [L_t(a_t) - \mu_\theta(a_t)] + [\mu_\theta(a^*) - U_t(a^*)]\right]
+\end{align*}
+
+\textit{Hint 1: this equality does not hold in general, its proof requires the use of the property for $\pi^{TS}_{t}(a \mid H_{t})$ listed above.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2a(.*?)% <SCPD_SUBMISSION_TAG>_2a', f.read(), re.DOTALL)).group(1))
+🐍

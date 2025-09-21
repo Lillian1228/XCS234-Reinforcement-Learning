@@ -1,0 +1,14 @@
+\item \points{2e}
+
+Use the previous parts to obtain:
+
+\begin{align*}
+\text{BR}_T(\pi^{TS}) \le 2K + 4 \sqrt{KT(2 + 6 \log T)}
+\end{align*}
+
+\textit{Hint: you may find the \textit{\href{https://www.maa.org/sites/default/files/gwan01200422828.pdf}{AM-QM inequality}} $\frac{1}{n} \sum_{i=1}^n x_i \le \sqrt{\frac{1}{n} \sum_{i=1}^n x_i^2}$ helpful.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2e(.*?)% <SCPD_SUBMISSION_TAG>_2e', f.read(), re.DOTALL)).group(1))
+🐍

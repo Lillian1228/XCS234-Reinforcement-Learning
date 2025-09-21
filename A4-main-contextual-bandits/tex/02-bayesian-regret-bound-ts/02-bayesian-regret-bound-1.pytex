@@ -1,0 +1,14 @@
+\item \points{2b}
+
+Now assume the rewards $r_t$ are bounded in $[0,1]$, $L_t \leq U_t$, $L_t \in [0,1]$ and $U_t \in [0,1]$. Show that:
+
+\begin{align*}
+\text{BR}_T(\pi^{TS}) \le \E_{\theta, H}\left[\left(\sum_{t=1}^T [U_t(a_t) - L_t(a_t)]\right) + T \sum_{a} \mathbb{I} \left\{\bigcup_{t=1}^T \left\{ \mu_\theta(a) \not \in [L_t(a), U_t(a)] \right\}\right\} \right]
+\end{align*}
+
+where the notation $\mathbb{I}\{\cdot\}$ refers to an indicator random variable which equals 1 if the expression inside the brackets is true and equals 0 otherwise.
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2b(.*?)% <SCPD_SUBMISSION_TAG>_2b', f.read(), re.DOTALL)).group(1))
+🐍
