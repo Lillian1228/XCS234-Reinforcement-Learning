@@ -1,0 +1,14 @@
+\item \points{2b}
+
+Prove that $\text{Var}(R_{t+1}) \geq \text{Var}(R_{t})$ is true if we assume that $r_{t+1}$ is, on average, correlated with the previous rewards, i.e. $\frac{1}{t+1} \sum_{i=0}^t \text{Cov}(r_i, r_{t+1}) > 0$.
+
+You may find the following properties helpful in proving this result:
+	$$Var(X+Y) = Var(X) + Var(Y) + 2Cov(X,Y)$$ 
+	$$Cov(X+Y, Z) = Cov(X, Z) + Cov(Y, Z)$$
+
+\textit{Hint: Try to write the expression for the return at a given timestep as a sum of rewards.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2b(.*?)% <SCPD_SUBMISSION_TAG>_2b', f.read(), re.DOTALL)).group(1))
+🐍

@@ -1,0 +1,107 @@
+% This contents of this file will be inserted into the _Solutions version of the
+% output tex document.  Here's an example:
+
+% If assignment with subquestion (1.a) requires a written response, you will
+% find the following flag within this document: <SCPD_SUBMISSION_TAG>_1a
+% In this example, you would insert the LaTeX for your solution to (1.a) between
+% the <SCPD_SUBMISSION_TAG>_1a flags.  If you also constrain your answer between the
+% START_CODE_HERE and END_CODE_HERE flags, your LaTeX will be styled as a
+% solution within the final document.
+
+% Please do not use the '<SCPD_SUBMISSION_TAG>' character anywhere within your code.  As expected,
+% that will confuse the regular expressions we use to identify your solution.
+
+\def\assignmentnum{3 }
+% \def\assignmentname{Sentiment Analysis}
+\def\assignmenttitle{XCS234 Assignment \assignmentnum}
+\input{macros}
+\begin{document}
+\pagestyle{myheadings} \markboth{}{\assignmenttitle}
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+This handout includes space for every question that requires a written response.
+Please feel free to use it to handwrite your solutions (legibly, please).  If
+you choose to typeset your solutions, the |README.md| for this assignment includes
+instructions to regenerate this handout with your typeset \LaTeX{} solutions.
+\ruleskip
+\LARGE
+2.b
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2b
+\begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2b
+\clearpage
+
+\LARGE
+2.c
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2c
+\begin{answer}
+  \begin{align*}
+    & \mathbb{E}_{\substack{s_{0:\infty}  \\ a_{0:\infty}}}[\sum_{t=0}^{\infty} \hat{A}_t(s_{0:\infty}, a_{0:\infty}) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)]  \\
+    & = \mathbb{E}_{\substack{s_{0:\infty}  \\ a_{0:\infty}}}[\sum_{t=0}^{\infty} (\hat{Q}_t(s_{t:\infty}, a_{t:\infty}) - b_t(s_{0:t}, a_{0:t-1})) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)] \\
+    & = \mathbb{E}_{\substack{s_{0:\infty}  \\ a_{0:\infty}}}[\sum_{t=0}^{\infty} (\hat{Q}_t(s_{t:\infty}, a_{t:\infty}))  \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)] -  \mathbb{E}_{\substack{s_{0:\infty}  \\ a_{0:\infty}}}[\sum_{t=0}^{\infty}  (b_t(s_{0:t}, a_{0:t-1})) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)]\\
+  \end{align*}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2c
+\clearpage
+
+\LARGE
+2.d
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2d
+\begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2d
+\clearpage
+
+\LARGE
+2.e
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2e
+\begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2e
+\clearpage
+
+\LARGE
+2.f
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_2f
+\begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_2f
+\clearpage
+
+\LARGE
+3.a
+\normalsize
+
+% <SCPD_SUBMISSION_TAG>_3a
+\begin{answer}
+  % ### START CODE HERE ###
+  % ### END CODE HERE ###
+\end{answer}
+% <SCPD_SUBMISSION_TAG>_3a
+\clearpage
+
+% <SCPD_SUBMISSION_TAG>_entire_submission
+
+\end{document}

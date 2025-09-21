@@ -1,0 +1,12 @@
+\item \points{2f}
+
+Show that $\hat{A}_t^{(\infty)} = \sum_{i=0}^{\infty} \gamma^i r_{t+i} - \hat{V}(s_t)$.
+
+\textit{Note: you may assume that $0 \leq \gamma < 1$.} 
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2f(.*?)% <SCPD_SUBMISSION_TAG>_2f', f.read(), re.DOTALL)).group(1))
+🐍
+
+\clearpage

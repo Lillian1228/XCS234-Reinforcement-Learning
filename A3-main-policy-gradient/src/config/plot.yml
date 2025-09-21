@@ -1,0 +1,11 @@
+cartpole:
+  env_name: "CartPole-v1"
+  seed: [1,2,3]
+
+pendulum:
+  env_name: "InvertedPendulum-v4"
+  seed: [1,2,3]
+
+cheetah:
+  env_name: "HalfCheetah-v4"
+  seed: [1,2,3]

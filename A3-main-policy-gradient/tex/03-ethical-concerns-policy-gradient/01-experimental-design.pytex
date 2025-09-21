@@ -1,0 +1,10 @@
+\item \points{3a}
+
+In 4-6 sentences, describe \textbf{two} experimental  design or research choices that researchers planning the above experiment ought to make in order to respect these principles. Justify the importance of these choices using one of the three ethical principles above and indicating which principle you have chosen. For example, “Researchers ought to ensure that students advised by the chatbot are able to revise their assignments after submission with the benefit of human advice if needed. If they did not take this precaution, the principle of justice would be violated because the risk of harm from poor advice from the AI chatbot would be distributed unevenly.” 
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_3a(.*?)% <SCPD_SUBMISSION_TAG>_3a', f.read(), re.DOTALL)).group(1))
+🐍
+
+\clearpage

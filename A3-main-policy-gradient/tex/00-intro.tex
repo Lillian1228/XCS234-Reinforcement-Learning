@@ -1,0 +1,68 @@
+\section{Introduction}
+
+In this assignment, we will begin implementing policy gradient methods on environments with discrete or continuous actions spaces. We will also explore variance reduction methods to allow us to improve upon the performance of the REINFORCE algorithm. \\
+
+By the end of this assignment, you should have an understanding of how to implement some of the fundamental policy gradient algorithms. You should also be able to apply variance reduction techniques to improve upon the performance of REINFORCE and to derive/discuss variance reduction in policy gradient methods. \\
+
+\textbf{Advice}
+
+\begin{itemize}
+  \item It will take time to train your policy gradient implementation across all environments for various seeds. It is worthwhile budgeting at least 12 hours for all training jobs to run to completion.
+
+  \item In this assignment, you will train your policy gradient implementation on your local machine using MuJoCo (physics engine) to power the simulation environment. To learn more about MuJoCo please visit \href{https://mujoco.readthedocs.io/en/latest/overview.html}{MuJoCo Documentation}.
+
+  \item We provide ~conda~ environment for preparing development environment. However, in case there is an issue, we also provide ~docker~ environment.
+
+  \item To setup ~conda~ environment, for CPU environment use ~environment.yml~, for CUDA use ~environment_cuda.yml~. Here is the command:
+    \begin{lstlisting}
+    $ conda update -n base conda
+    $ conda env create --file environment.yml #  environment_cuda.yml for CUDA
+    \end{lstlisting}
+  \item If you choose to run the assignment code on CPU using the Dockerfile please follow these instructions:
+    \begin{itemize}
+        \item build the image from the folder where the Dockerfile is located: ~docker build -t xcs234-a3 .~
+        \item run the image:  ~docker run --rm -it -v /home/scpdxcs/xcs234/A3:/home/scpdxcs/A3 xcs234-a3~
+    \end{itemize}
+
+  \item If you choose to run the assignment code on GPU using the Dockerfile please follow these instructions:
+    \begin{itemize}
+        \item build the image from the folder where the Dockerfile is located: ~docker build -t xcs234-a3-cuda --build-arg CUDA=Y .~
+        \item install the nvidia-container-toolkit: ~sudo apt-get install nvidia-container-toolkit~
+        \item run the image with GPU support: ~docker run --rm -it -v /home/scpdxcs/xcs234/A3:/home/scpdxcs/A3 --privileged --gpus all xcs234-a3-cuda~
+    \end{itemize}
+
+  \item To learn more about Docker and containerization visit \href{https://docs.docker.com/get-started/}{Docker Get Started}.
+
+  \item If you encounter the following error when installing on a MacOS with M1 chip run the following command ~conda install openblas~.
+
+  \begin{lstlisting}
+  bin/../lib/liblapack.3.dylib' (no such file), '/usr/local/lib/liblapack.3.dylib' (no such file), '/usr/lib/liblapack.3.dylib' (no such file)
+  \end{lstlisting}
+
+
+\end{itemize}
+
+\textbf{Coding Deliverables}
+
+For this assignment, please submit the following files to gradescope to recieve points for coding questions:
+\begin{itemize}
+    \item ~src/submission/__init__.py~
+    \item ~src/submission/baseline_network.py~
+    \item ~src/submission/mlp.py~
+    \item ~src/submission/policy.py~
+    \item ~src/submission/policy_gradient.py~
+    \item ~src/submission/CartPole-v1-no-baseline-model-weights.pt~
+    \item ~src/submission/CartPole-v1-no-baseline-scores.npy~
+    \item ~src/submission/CartPole-v1-baseline-model-weights.pt~
+    \item ~src/submission/CartPole-v1-baseline-scores.npy~
+    \item ~src/submission/InvertedPendulum-v4-no-baseline-model-weights.pt~
+    \item ~src/submission/InvertedPendulum-v4-no-baseline-scores.npy~
+    \item ~src/submission/InvertedPendulum-v4-baseline-model-weights.pt~
+    \item ~src/submission/InvertedPendulum-v4-baseline-scores.npy~
+    \item ~src/submission/HalfCheetah-v4-no-baseline-model-weights.pt~
+    \item ~src/submission/HalfCheetah-v4-no-baseline-scores.npy~
+    \item ~src/submission/HalfCheetah-v4-baseline-model-weights.pt~
+    \item ~src/submission/HalfCheetah-v4-baseline-scores.npy~ \\
+\end{itemize}  
+
+\clearpage

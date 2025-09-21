@@ -1,0 +1,21 @@
+\section{Appendix}
+\label{appendix}
+
+\subsection*{a.1}
+\label{a.1}
+\textbf{Statement:} $\mathbb{E}_{\tau}[(b_t(s_{0:t}, a_{0:t-1})) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)]=0$
+
+\textbf{Proof:}
+\begin{align*}
+\begin{split}
+&\mathbb{E}_{\tau}[\nabla_{\theta} log(\pi(a_{t}|s_{t};\theta))b(s_{t})] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[\mathbb{E}_{s_{t+1:T},a_{t}:T-1}[\nabla_{\theta} log(\pi(a_{t}|s_{t};\theta))b(s_{t})]] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[b(s_{t})\mathbb{E}_{s_{t+1:T},a_{t}:T-1}[\nabla_{\theta} log(\pi(a_{t}|s_{t};\theta))]] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[b(s_{t})\mathbb{E}_{a_{t}}[\nabla_{\theta} log(\pi(a_{t}|s_{t};\theta))]] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[b(s_{t}) \sum_{a} \pi_{\theta}(a_{t}|s_{t})\frac{\nabla_{\theta}\pi(a_{t}|s_{t};\theta)}{\pi_{\theta}(a_{t}|s_{t})}] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[b(s_{t}) \sum_{a} \nabla_{\theta}\pi(a_{t}|s_{t};\theta)] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[b(s_{t}) \nabla_{\theta}\sum_{a} \pi(a_{t}|s_{t};\theta)] \\ \\
+&=\mathbb{E}_{s_{0:t},a_{0}:t-1}[b(s_{t}) \nabla_{\theta}1] \\ \\
+&=0
+\end{split}
+\end{align*}

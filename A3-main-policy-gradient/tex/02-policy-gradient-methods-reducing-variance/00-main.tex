@@ -1,0 +1,34 @@
+\section{Reducing Variance in Policy Gradient Methods}
+
+In class, we explored REINFORCE as a policy gradient method with no bias but high variance. In this problem, we will explore methods to dramatically reduce variance in policy gradient methods, potentially at the cost of increased bias. 
+
+Let us consider an infinite horizon MDP $\mathcal{M} = \langle \mathcal{S}, \mathcal{A}, \mathcal{R}, \mathcal{T}, \gamma \rangle$. Let us define 
+
+\begin{align*} 
+A^{\pi}(s_t, a_t) = Q^{\pi}(s_t, a_t) - V^{\pi}(s_t)
+\end{align*}
+
+An approximation to the policy gradient is defined as
+
+\begin{align*}
+    g = \mathbb{E}_{\substack{s_{0:\infty}  \\ a_{0:\infty}}}[\sum_{t=0}^{\infty} A^{\pi}(s_t, a_t) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)]
+\end{align*}
+
+where the colon notation $a:b$ represents the range $[a, a+1, a+2, ... b]$ inclusive of both ends. 
+
+
+\begin{enumerate}[(a)]
+
+	\input{02-policy-gradient-methods-reducing-variance/01-variance-of-return}
+
+	\input{02-policy-gradient-methods-reducing-variance/02-variance-of-return-with-condition}
+
+	\input{02-policy-gradient-methods-reducing-variance/03-unbiased-policy-gradient-estimate}
+
+	\input{02-policy-gradient-methods-reducing-variance/04-unbiased-advantage-estimate}
+
+	\input{02-policy-gradient-methods-reducing-variance/05-advantage-bias-variance}
+
+	\input{02-policy-gradient-methods-reducing-variance/06-advantage-identity}
+
+\end{enumerate}

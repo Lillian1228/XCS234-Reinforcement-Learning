@@ -1,0 +1,12 @@
+\item \points{2e}
+
+Let us define $\hat{A}_t^{(k)} = \sum_{i=0}^{k-1} \gamma^i \delta^{\hat{V}}_{t + i}$. Show that $\hat{A}_t^{(k)} =  - \hat{V}(s_t) + \gamma^k \hat{V}(s_{t+k}) + \sum_{i=0}^{k-1} \gamma^i r_{t+i}$. \\
+
+In general, how does bias and variance change as $k$ increases? A few sentences of justification will suffice when describing the changes in variance and bias as we increase $k$, no formal proof is necessary.
+
+\textit{Hint: if you expand the expression for $\hat{A}_t^{(k)}$ you should observe a telescoping sum which can help simplify your proof for the first part of this question.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2e(.*?)% <SCPD_SUBMISSION_TAG>_2e', f.read(), re.DOTALL)).group(1))
+🐍

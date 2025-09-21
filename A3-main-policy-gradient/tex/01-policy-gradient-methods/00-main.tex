@@ -1,0 +1,54 @@
+\section{Policy Gradient Methods}
+
+The goal of this problem is to experiment with policy gradient and its variants, including variance reduction methods. Your goal will be to set up policy gradient for both continuous and discrete environments, and implement a neural network baseline for variance reduction. The script for running the policy gradient algorithm is setup in \texttt{run.py}, and everything that you need to implement is in the files \texttt{baseline\_network.py}, \texttt{mlp.py}, \texttt{policy.py} and \texttt{policy\_gradient.py} within the submission folder. Each submission script has detailed instructions for each implementation task. We have also provided an overview of key steps in the algorithm below: \\
+
+
+\textbf{REINFORCE}
+
+Recall the policy gradient theorem:
+\[ \nabla_\theta J(\theta) = \mathbb E_{\pi_\theta} \left[ \nabla_\theta \log\pi_\theta(a \mid s) Q^{\pi_\theta} (s,a) \right] \]
+REINFORCE is a Monte Carlo policy gradient algorithm, so we will be using the sampled returns $G_t$ as unbiased estimates of $Q^{\pi_\theta}(s,a)$. 
+The REINFORCE estimator can be expressed as the gradient of the following objective function:
+\[ J(\theta) = \frac{1}{\sum T_i} \sum_{i=1}^{\mid D \mid} \sum_{t=1}^{T_i} \log(\pi_\theta(a^i_t \mid s^i_t)) G^i_t \]
+where $D$ is the set of all trajectories collected by policy $\pi_\theta$, and $\tau^i =(s^i_0, a^i_0, r^i_0, s^i_1, \dots, s^i_{T_i}, a^i_{T_i}, r^i_{T_i})$ is trajectory $i$. \\
+
+\textbf{Baseline}
+
+One difficulty of training with the REINFORCE algorithm is that the Monte Carlo sampled return(s) $G_t$ can have high variance. To reduce variance, we subtract a baseline $b_{\phi}(s)$ from the estimated returns when computing the policy gradient. A good baseline is the state value function, $V^{\pi_\theta}(s)$, which requires a training update to $\phi$ to minimize the following mean-squared error loss:
+\[ L_{\text{MSE}}(\phi) = \frac{1}{\sum T_i} \sum_{i=1}^{\mid D \mid} \sum_{t=1}^{T_i} (G^i_t - b_{\phi}(s^i_t))^2\] \\
+
+\textbf{Advantage Normalization}
+
+After subtracting the baseline, we get the following new objective function:
+
+\[ J(\theta) = \frac{1}{\sum T_i} \sum_{i=1}^{\mid D \mid} \sum_{t=1}^{T_i} \log(\pi_\theta(a^i_t \mid s^i_t)) \hat{A}^i_t \]
+
+where
+
+\[\hat{A}^i_t = G^i_t - b_{\phi}(s^i_t)\]
+
+A second variance reduction technique is to normalize the computed advantages, $\hat{A}^i_t$, so that they have mean $0$ and standard deviation $1$. From a theoretical perspective, we can consider centering the advantages to be simply adjusting the advantages by a constant baseline, which does not change the policy gradient. Likewise, rescaling the advantages effectively changes the learning rate by a factor of $1/\sigma$, where $\sigma$ is the standard deviation of the empirical advantages. \\
+
+\textit{Note: for the following coding questions some scripts contain member functions of different classes with the same name. In order to distinguish which function we refer to in each question we use the following syntax ~class::function~.}
+\clearpage
+
+
+\begin{enumerate}[(a)]
+
+	\input{01-policy-gradient-methods/01-mlp}
+
+	\input{01-policy-gradient-methods/02-baseline}
+
+	\input{01-policy-gradient-methods/03-initialize-policy}
+
+	\input{01-policy-gradient-methods/04-complexity-optimization}
+
+	\input{01-policy-gradient-methods/05-get-returns}
+
+	\input{01-policy-gradient-methods/06-policy}
+
+	\input{01-policy-gradient-methods/07-policy-update}
+
+	\input{01-policy-gradient-methods/08-interpretation-of-results}
+
+\end{enumerate}

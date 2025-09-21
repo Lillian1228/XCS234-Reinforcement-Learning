@@ -1,0 +1,30 @@
+\item \points{2c}
+
+In practice, we do not have access to the true function $A^{\pi}(s_t, a_t)$, so we would like to obtain an estimate instead. We will consider the general form of an estimator $\hat{A}_t(s_{0:\infty}, a_{0:\infty})$ that can be a function of the entire trajectory. 
+
+Consider the following setup: 
+\begin{align*}
+\hat{A}_t(s_{0:\infty}, a_{0:\infty}) = \hat{Q}_t(s_{t:\infty}, a_{t:\infty}) - b_t(s_{0:t}, a_{0:t-1})
+\end{align*}
+where,
+\begin{align*}
+\mathbb{E}_{\substack{s_{t+1:\infty}  \\ a_{t+1:\infty}}}[\hat{Q}_t(s_{t:\infty}, a_{t:\infty})] = Q^{\pi}(s_t, a_t)
+\end{align*}
+
+which indicates that for all $s_t, a_t$, we have that $\hat{Q}_t$ is an unbiased estimator of the true $Q^{\pi}$.
+
+Also note, that $b_t$ is an arbitrary function of the actions and states sampled before $a_t$. Prove that by using this estimate of $\hat{A}_t$, we obtain an unbiased estimate of the policy gradient $g$. In other words, prove the following identity:
+$$\mathbb{E}_{\substack{s_{0:\infty}  \\ a_{0:\infty}}}[\sum_{t=0}^{\infty} \hat{A}_t(s_{0:\infty}, a_{0:\infty}) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)] = g$$
+
+\textit{Note: Recall the following result from class:} 
+$$\mathbb{E}_{\tau}[(b_t(s_{0:t}, a_{0:t-1})) \nabla_{\theta} \text{ log } \pi_{\theta}(a_t, s_t)]=0$$ 
+
+\textit{You may cite this result without proof in your answer. Please consult the \nameref{a.1} for further details on how we derived this result.}
+
+\textit{We have also provided you with the first few lines of a proof for this questions to help you get started.}
+
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2c(.*?)% <SCPD_SUBMISSION_TAG>_2c', f.read(), re.DOTALL)).group(1))
+🐍

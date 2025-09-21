@@ -1,0 +1,21 @@
+\section{Ethical concerns with Policy Gradients}
+
+In this assignment, we focus on policy gradients, an extremely popular and useful model-free technique for RL. However, policy gradients collect data from the environment with a potentially suboptimal policy during the learning process. While this is acceptable in simulators like Mujoco or Atari, such exploration in real world settings such as healthcare and education presents challenges. 
+
+Consider a case study of a Stanford CS course considering introducing a RL-based chat bot for office hours.  For each assignment, some students will be given 100\% human CA office hours; others 100\% chatbot; others a mix of both. The reward signal is the student grades on each assignment. Since the AI chatbot will learn through experience, at any given point in the quarter, the help given by the chatbot might be better or worse than the help given by a randomly selected human CA.  
+
+If each time students are randomly assigned to each condition, some students will be assigned more chatbot hours and others fewer. In addition, some students will be assigned more chatbot hours at the beginning of the term (when the chatbot has had fewer interactions and may have lower effectiveness)  and fewer at the end, and vice versa.  All students will be graded according to the same standards, regardless of which type of help they have received.  
+
+Researchers who experiment on human subjects are morally responsible for ensuring their well being and protecting them from being harmed by the study. A foundational document in research ethics, the \href{https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html#xethical}{Belmont Report}, identifies three core principles of responsible research:
+
+\begin{enumerate}
+    \item \textbf{Respect for persons:} individuals are capable of making choices about their own lives on the basis of their personal goals. Research participants should be informed about the study they are considering undergoing, asked for their consent, and not coerced into giving it. Individuals who are less capable of giving informed consent, such as young children, should be protected in other ways.
+    \item \textbf{Beneficence:} the principle of beneficence describes an obligation to ensure the well-being of subjects. It has been summarized as “do not harm” or “maximize possible benefits and minimize possible harms.”
+    \item \textbf{Justice:} the principle of justice requires treating all people equally and distributing benefits and harms to them equitably. 
+\end{enumerate}
+
+\begin{enumerate}[(a)]
+
+    \input{03-ethical-concerns-policy-gradient/01-experimental-design}
+
+\end{enumerate}

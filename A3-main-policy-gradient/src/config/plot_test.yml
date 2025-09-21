@@ -1,0 +1,3 @@
+cartpole:
+  env_name: "CartPole-v1"
+  seed: [1,2,3]

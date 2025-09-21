@@ -1,0 +1,10 @@
+\item \points{2d}
+
+We will now look at a few different variants of $\hat{A}_t$. Recall the TD error $\delta_t^{\hat{V}}(s_t, a_t) = r_t + \gamma \hat{V}(s_{t+1}) - \hat{V}(s_t)$. If $\hat{V} = V^{\pi}$, prove that $\delta_t^{\hat{V}}$ is an unbiased estimate of $A^{\pi}$. 
+
+\textit{Note: Recall that an estimator $\hat{\theta}$ is an unbiased estimator of $\theta$ if $\mathbb{E}[\hat{\theta}]=\theta$.}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_2d(.*?)% <SCPD_SUBMISSION_TAG>_2d', f.read(), re.DOTALL)).group(1))
+🐍
